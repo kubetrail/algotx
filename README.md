@@ -158,3 +158,23 @@ This will produce a transaction ID.
 
 At this point the sender will have a balance of `9999000` and the receiver will have a 
 balance of `5000000`
+
+## stopping node
+Go back to the folder where 
+[sandbox]() 
+code was cloned, then run
+```bash
+./sandbox down
+```
+```text
+Stopping sandbox containers...
+[+] Running 3/3
+ ⠿ Container algorand-sandbox-indexer   Stopped                                                                                              0.2s
+ ⠿ Container algorand-sandbox-algod     Stopped                                                                                              0.2s
+ ⠿ Container algorand-sandbox-postgres  Stopped
+```
+
+At this point running an RPC command will result in:
+```text
+Error: failed to get account info: Get "http://localhost:4001/v2/accounts/XAIMZCDMVTDQM2VWBXLM4NENUAT3DLHEPZHR56YXKBTAQNSDBN2WKXK25Q": dial tcp [::1]:4001: connect: connection refused
+```
