@@ -161,7 +161,7 @@ balance of `5000000`
 
 ## stopping node
 Go back to the folder where 
-[sandbox]() 
+[sandbox](https://github.com/algorand/sandbox) 
 code was cloned, then run
 ```bash
 ./sandbox down
