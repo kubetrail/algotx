@@ -24,66 +24,36 @@ to run `algod` on localhost please follow the instructions
 ```bash
 git clone https://github.com/algorand/sandbox.git
 cd sandbox
-./sandbox up testnet
+```
+
+To spin up a node on the main network use argument `mainnet`
+Alternatively, use `testnet` to for test network
+```bash
+./sandbox up mainnet
 ```
 You should see output similar to:
 ```text
-Starting sandbox for: testnet
-see sandbox.log for detailed progress, or use -v.
-* docker containers started!
-* waiting for services to initialize.
-* services ready!
-
-algod version
-12885295106
-3.6.2.stable [rel/stable] (commit #5e6bc6fc)
-go-algorand is licensed with AGPLv3.0
-source code available at https://github.com/algorand/go-algorand
-
-Indexer version
-Indexer disabled for this configuration.
-
-Postgres version
-postgres (PostgreSQL) 13.6
-
 algod - goal node status
-Last committed block: 15
-Time since last block: 0.0s
-Sync Time: 0.7s
-Last consensus protocol: https://github.com/algorand/spec/tree/a26ed78ed8f834e2b9ccb6eb7d3ee9f629a6e622
-Next consensus protocol: https://github.com/algorand/spec/tree/a26ed78ed8f834e2b9ccb6eb7d3ee9f629a6e622
-Round for next consensus protocol: 16
-Next consensus protocol supported: true
-Last Catchpoint: 
-Genesis ID: testnet-v1.0
-Genesis hash: SGO1GKSzyE7IEPItTxCByw9x8FmnrCDexi9/cOUJOiI=
-
-indexer - health
-Indexer disabled for this configuration.
-
-Starting fast-catchup with catchpoint: 21580000#PAWLVBLZ7ABAVWDNYE3R6AO7WYIOXYCVMJM2NDY7APXCXUYZWZVA
-* Account processing complete.
-* Blocks downloaded.
-
-Fast-catchup complete! Printing status...
-
-algod - goal node status
-Last committed block: 21580042
-Time since last block: 0.0s
-Sync Time: 0.7s
+Last committed block: 21077671
+Time since last block: 3.8s
+Sync Time: 37.4s
 Last consensus protocol: https://github.com/algorandfoundation/specs/tree/d5ac876d7ede07367dbaa26e149aa42589aac1f7
 Next consensus protocol: https://github.com/algorandfoundation/specs/tree/d5ac876d7ede07367dbaa26e149aa42589aac1f7
-Round for next consensus protocol: 21580043
+Round for next consensus protocol: 21077672
 Next consensus protocol supported: true
 Last Catchpoint: 
-Genesis ID: testnet-v1.0
-Genesis hash: SGO1GKSzyE7IEPItTxCByw9x8FmnrCDexi9/cOUJOiI=
+Genesis ID: mainnet-v1.0
+Genesis hash: wGHE2Pwdvd7S12BL5FaOP20EGYesN73ktiC1qzkkit8=
 
 indexer - health
 Indexer disabled for this configuration.
 ```
 
-At this point RPC calls to `testnet` should go through.
+Verify output of balance command shown below against output from
+[Algorand Explorer](https://algoexplorer.io/)
+
+> Please note that the examples below are shown for
+> the test network
 
 ## generate keys
 [bip39](https://github.com/kubetrail/bip39) and
@@ -172,6 +142,11 @@ Stopping sandbox containers...
  ⠿ Container algorand-sandbox-indexer   Stopped                                                                                              0.2s
  ⠿ Container algorand-sandbox-algod     Stopped                                                                                              0.2s
  ⠿ Container algorand-sandbox-postgres  Stopped
+```
+
+Finally clean up the containers as needed:
+```bash
+./sandbox clean
 ```
 
 At this point running an RPC command will result in:
