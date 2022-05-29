@@ -8,7 +8,7 @@ require (
 	github.com/kubetrail/bip39 v0.0.0-20220503145559-3ba1893d009d
 	github.com/spf13/cobra v1.4.0
 	github.com/spf13/viper v1.11.0
-	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b
+	gopkg.in/yaml.v3 v3.0.0
 )
 
 require (
